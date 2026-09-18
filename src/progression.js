@@ -71,40 +71,6 @@ function ajouterApprenant() {
 
 
 
-// function enregistrerResultat() {
-    
-//     let id = Number(prompt("Enter the learner ID : "))
-//     let apprenant = apprenants.find(apprenant => apprenant.id === id);
-//     while (!apprenant) {
-//         id = Number(prompt("Enter a valid ID : "))
-//         apprenant = apprenants.find(apprenant => apprenant.id === id);
-//     }
-//     let resultat = {
-//     jour: jour,
-//     totalExercices: 20,
-//     exercicesTermines: 0,
-//     challengeTermine: false
-//     }
-
-// let jour = Number(prompt("Enter the day: "));
-// while (!validerResultat(resultat)) {
-//     jour = Number(prompt("Please enter a valid day: "));
-//     resultat.jour = jour;
-// }
-// let exercicesTermines = Number(prompt("Enter how many exercices have the learner completed : "))
-// while (!validerResultat(resultat)) {
-//     exercicesTermines = Number(prompt("Please enter a valid number: "));
-//     resultat.exercicesTermines = exercicesTermines;
-// }
-// let challengeTermine = Boolean(prompt("Have you completed the challenge : "))
-// while (!validerResultat(resultat)) {
-//     challengeTermine = Number(prompt("Please enter a valid boolean: "));
-//     resultat.challengeTermine = challengeTermine;
-// }    
-// }
-// // ajouterApprenant()
-// enregistrerResultat()
-// // console.log(apprenants)
     
 
 function findbyid(apprenants , ids) {
