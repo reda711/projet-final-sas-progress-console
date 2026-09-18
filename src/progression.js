@@ -34,7 +34,7 @@ function ajouterApprenant() {
     let id = Number(prompt("Please enter your id : "));
     while (!Number.isInteger(id) || id <= 0 ) {
         console.log("Please enter a valid ID");
-        id = Number(prompt("Please enter your id : "));
+       return
     }
     let alreadyexist = apprenants.some(apprenant => apprenant.id === id)  
     while(alreadyexist){
@@ -70,11 +70,31 @@ function ajouterApprenant() {
 }
 
 
-
-    
-
 function findbyid(apprenants , ids) {
-    let id = Number(prompt("enter the id of the learner you want to find : "))
+    let id = Number(prompt("Enter the ID of the learner you want to find : "))
+    if(!isNaN){
+        console.log("please enter a valide ID");
+        return 
+    }    
     return apprenants.find(apprenant => apprenant.id === id)
+}
+
+   function calculerProgression(apprenant) {
+    apprenant = findbyid(apprenants)
+
+    if (apprenant.resultats.length === 0) {
+        return 0;
+    }
+
+    let totalExercices = 0;
+    let exercicesTermines = 0;
+
+    for (let i = 0; i < apprenant.resultats.length; i++) {
+        let resultat = apprenant.resultats[i];
+        totalExercices += resultat.totalExercices;
+        exercicesTermines += resultat.exercicesTermines;
+    }
+    let progress = (exercicesTermines / totalExercices) * 100;
+    return `${progress}%`;
 }
 
