@@ -80,7 +80,6 @@ function findbyid(apprenants , ids) {
 }
 
    function calculerProgression(apprenant) {
-    apprenant = findbyid(apprenants)
 
     if (apprenant.resultats.length === 0) {
         return 0;
@@ -98,3 +97,12 @@ function findbyid(apprenants , ids) {
     return `${progress}%`;
 }
 
+function calculerMoyenne(apprenant) {
+    let total = []
+    for (let i = 0; i < apprenants.length; i++) {
+        total.push(calculerProgression(apprenants[i]))        
+     }  
+     return total
+    }
+
+    
