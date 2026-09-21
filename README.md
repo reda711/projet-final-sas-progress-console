@@ -9,10 +9,8 @@ the app allows you to :
 * Consult a learner by ID
 * Record daily results
 * Calculate learner progress
-* Display completed and missed days
 * Filter learners by level
 * Sort learners by progress
 * Sort learners alphabetically
 
 the app was built using javascript , node js and prompt sync 
- 

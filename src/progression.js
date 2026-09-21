@@ -8,7 +8,7 @@ function normaliserNom(nom) {
     nom = nom.join(" ")
     return nom
 }
-function ajouterApprenant() {
+function ajouterApprenant() {   
     let id = Number(prompt("Please enter your id : "));
     while (!Number.isInteger(id) || id <= 0) {
         console.log("Please enter a valid ID");
@@ -23,14 +23,14 @@ function ajouterApprenant() {
 
     let nomComplet = prompt("Please enter your full name : ");
 
-    while (!nomComplet || nomComplet.trim() === "") {
+    while (!nomComplet || !/^[a-zA-ZÀ-ÿ\s]+$/.test(nomComplet.trim())) {
         console.log("Please enter a valid name");
         nomComplet = prompt("Please enter your full name : ");
     }
 
     let ville = prompt("Please enter your city: ");
 
-    while (!ville || ville.trim() === "") {
+    while (!ville || !/^[a-zA-ZÀ-ÿ\s]+$/.test(ville.trim())){
         console.log("Please enter a valid city");
         ville = prompt("Please enter your city: ");
     }
@@ -55,7 +55,7 @@ function findbyid(apprenants) {
         return
     }
     let found = apprenants.find(apprenant => apprenant.id === id)
-    let progress = calculerProgression(found)    
+    let progress = calculerProgression(found)
     let level = ""
     if (progress >= 80) {
         level = "solide"
@@ -155,9 +155,9 @@ Solide : ${solide}
 En progression : ${enprogression}
 A renforcer : ${arenforcer}
 `);
-ligne();
-console.log(
-`les apprenants par progression décroissante : 
+    ligne();
+    console.log(
+        `les apprenants par progression décroissante : 
 `
     );
 }
@@ -192,7 +192,8 @@ function listedesapprenants() {
 function validerResultat() {
     let id = Number(prompt("which learner you want to log : "))
     if (apprenants.findIndex(apprenant => apprenant.id === id) === -1) {
-        return console.log("this id doesn't exist ");
+        console.log("this id doesn't exist ");
+        id = Number(prompt("which learner you want to log : "))
     }
     let jour = Number(prompt("Enter the day you want to log : "))
     while (!Number.isInteger(jour) || jour < 1 || jour > 7) {
@@ -209,7 +210,7 @@ function validerResultat() {
     let challengeTermine = String(prompt("Have you completed the challenge (yes/no): "))
     while (challengeTermine !== "no" && challengeTermine !== "yes") {
         console.log("input invalid");
-        challengeTermine = String(prompt("Have you completed the challenge (yes/no): "))
+        challengeTermine = String(prompt("Have you completed the challenge (yes/no): ") )
 
     }
     if (challengeTermine === "yes") {
@@ -311,6 +312,7 @@ module.exports = {
     enregistrerResultat,
     ligne
 };
+
 
 
 
