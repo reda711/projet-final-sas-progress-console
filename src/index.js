@@ -2,10 +2,22 @@ const apprenants = require("./data");
 const prompt = require("prompt-sync")();
 const {
   validerResultat,
+  normaliserNom,
+  ajouterApprenant,
+  enregistrerResultat,
+  findbyid,
+  tableaudebord,
+  calculerProgression,
+  calculerMoyenne,
+  calculerMoyenneclass,
+  listedesapprenants,
+  findbyname,
+  filtrerParNiveau,
+  trierParProgression,
+  trierParNom,
+  ligne,
 } = require("./progression");
-function ligne() {
-    console.log("=".repeat(72));
-}
+
 
 
 
@@ -30,22 +42,35 @@ function menu() {
 
     switch (choix) {
         case "1":
+            tableaudebord();
+            trierParProgression()
+            listedesapprenants()
             break;
         case "2":
+            listedesapprenants()
             break;
         case "3":
+            ajouterApprenant();
             break;
         case "4":
+            findbyid(apprenants);
             break;
         case "5":
+            enregistrerResultat();
             break;
         case "6":
+            findbyname(apprenants);
             break;
         case "7":
+            filtrerParNiveau(apprenants)
             break;
         case "8":
+            trierParProgression()
+            listedesapprenants()
             break;
         case "9":
+            trierParNom()
+            listedesapprenants()
             break;
         case "0":
             console.log("See you later !");
